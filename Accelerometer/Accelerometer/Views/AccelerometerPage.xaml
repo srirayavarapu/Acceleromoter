@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Accelerometer.Views.AccelerometerPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="ReadingsText"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Switch x:Name="MonitorSwitch" IsToggled="True" Toggled="MonitorSwitch_Toggled"></Switch>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
