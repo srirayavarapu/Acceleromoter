@@ -13,6 +13,10 @@ namespace Accelerometer.Views
     public partial class AccelerometerPage : ContentPage
     {
         SensorSpeed speed = SensorSpeed.UI;
+        float xDiff = 0;
+        float zDiff = 0;
+        float yDiff = 0;
+
         public AccelerometerPage()
         {
             InitializeComponent();
@@ -26,7 +30,14 @@ namespace Accelerometer.Views
         {
             Device.BeginInvokeOnMainThread(() => {
                 var data = e.Reading;
-                ReadingsText.Text = $"Reading: X: {data.Acceleration.X}, Y: {data.Acceleration.Y}, Z: {data.Acceleration.Z}";
+                
+                if((xDiff - data.Acceleration.X) > .007 || (zDiff - data.Acceleration.Z) > .007)
+                {
+                    ReadingsText.Text = $"Reading: X: {data.Acceleration.X}, Y: {data.Acceleration.Y}, Z: {data.Acceleration.Z}";
+                }
+
+
+                
             });
         }
 
